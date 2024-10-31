@@ -1,0 +1,90 @@
+id,text
+SRS01,"There shall be a single entry point to libwarc, called ""warc.h""."
+SRS02,"The ""libwarc"" headers shall be structured in a hierarchical manner. The universal header ""warc.h"" will include all of them."
+SRS03,"It shall be possible for developers to access, modify and manipulate of all aspects of the WARC file format by including this single header file."
+SRS04,"The universal header ""warc.h"" shall ensure compatibility between all versions of libwarc."
+SRS05,"The universal header ""warc.h"" shall ensure that deprecated function calls and changes to the library are notified at compile time."
+SRS06,"The interfaces in libwarc shall ensure that any changes to the library, will not affect any tool or application based on libwarc."
+SRS07,"The universal header ""warc.h"" shall provide normalised interfaces to enable developers to create valid and compliant WARC-records, based on the definition in the ""ISO TC 46/SC 4 N 595"" standards document. The interfaces shall be made available to create WARC records of the following types: - ""warinfo"" - ""response"" - ""request"" - ""metadata"" - ""revisit"" - ""conversion"" - ""continuation"" - ""resource"""
+SRS08,Each WARC-record shall be accessible via a peer C class of the same name.
+SRS09,"The attributes of each WARC-record, as per the ISO standard specification, shall have a corresponding attribute in its peer C class."
+SRS10,"Each peer class shall expose a set a class functions to read, write, and update attributes for the corresponding WARC-record."
+SRS11,"Libwarc shall provide an API describing (1) the set of data, and (2) the set of operations that can be performed on the data. The data types shall be abstract (abstract data types - ADT), to ensure independence of concrete implementations."
+SRS12,"It shall be possible to create a WARC-record using a constructor, which will returns an abstract handle to data representing the WARC-record."
+SRS13,It shall be possible to release the WARC-record using a destructor.
+SRS14,Any operations on WARC-records shall be possible using functions accepting the abstract handle as an argument.
+SRS15,SRS 15 -Libwarc shall include ADT objects to handle read operations on ARC-records
+SRS16,"Libwarc shall provide a generic iterator, to enable the developer to iterate over all WARCrecords and create an abstract WARC-document as a simple container"
+SRS17,Libwarc shall provide a WARC-record MIME-type iterator
+SRS18,Libwarc shall provide a WARC-record-type iterator
+SRS19,Libwarc's generic iterators may be customised for different purposes via callback handlers (i.e. hooks)
+SRS20,Libwarc's iterators may be combined into composite iterators to enable the developer to more than one search field
+SRS21,Libwarc shall encapsulate and handle all memory management when processing WARCrecords.
+SRS22,"Developers using libwarc shall not be required to allocate/release memory directly, instead the developer shall use libwarc's object constructor and destructor functions."
+SRS23,Libwarc shall use dynamic heap memory for its internal usage.
+SRS24,Libwarc shall allocate minimum memory heap to store WARC-record metadata.
+SRS25,"The payload (or the WARC-record document itself) are stored on disk, to avoid using memory heap, even for small objects."
+SRS26,"Libwarc shall not use file to memory mapping technology, instead libwarc will explicitly allocate memory as needed."
+SRS27,Libwarc shall support non-compressed WARC-records and compressed WARC-records and files
+SRS28,The default compression format shall be Gzip
+SRS29,"Libwarc shall support multiple compression schemas, loading a specific compressor at runtime as an external shared library."
+SRS30,It shall not be possible to use more than one compression schema (including noncompression) within a single WARC file. (i.e. it is not possible to mix compression schemes within a single WARC file).
+SRS31,A command line tool shall be implemented utilising libwarc to check the consistency of WARC-records and their conformance to the WARC ISO standard.
+SRS32,"The command line tool shall notify the user of any WARC-record's anomalies, missing required fields or incompatible fields types."
+SRS33,Libwarc shall provide a set of classes to enable remote management of WARC-records
+SRS34,"It shall be possible to perform read operations (read from offset, filters, etc.) on WARCrecords from a remote location via http."
+SRS35,"For security reasons, it shall not be possible to perform write or update operations on a WARC-record remotely"
+SRS36,WARC browser shall not support CDX files because the CDX file format is not a standard at this time and is outside of scope.
+SRS37,WARC Browser shall support a client-side rewriting interface by using javascript code to rewrite links being delivered alongside archived content. This is based on the principles implemented in the Wayback Machine.
+SRS38,SRS 38 -A web proxy interface shall be implemented that allows the user to set their web browser proxy to the one provided by the interface and thereby ensure all content is delivered from the archive and not from the live web.
+SRS39,Libwarc shall be incorporated within an Apache module to enable all actions specified in SRS 34-36 to be executed within Apache.
+SRS40,Libwarc shall be incorporated within a Lighttp module to enable all actions specified in SRS 34-36 to be executed within lighttp.
+SRS41,"A command line tool ""arc2warc"" incorporating libwarc shall be able to migrate data in ARC-records to WARC-record format."
+SRS42,"The default operation of ""arc2warc"" shall carry out a one-to-one mapping of record fields, by converting each ARC-record to a corresponding ""response"" WARC-record and ""metadata"" WARCrecord, which shall include information about the conversion process."
+SRS43,"""arc2warc"" shall have make a default operation in cases where an ARC-record has no corresponding field in the WARC-record."
+SRS44,"It shall be possible to specify non-default operations of ""arc2warc"" using a named configuration file, which will describe the desired ARC-record to WARC-record conversion."
+SRS45,"A set of command line tools incorporating libwarc shall perform migration of ""HTTrack"" archives to WARC-records."
+SRS46,"The HTTrack archive file format and link strategy may vary from version to version of HTTrack, therefore it shall be possible to adapt the migration scripts to deal with these changes."
+SRS47,"A set of command line tools incorporating libwarc shall perform migration of ""wget"" archives to WARC-records."
+SRS48,"A set of command line tools incorporating libwarc shall perform migration of ""curl"" archives to WARC-records."
+SRS49,"A set of command line tools and an API incorporating libwarc shall enable the collection of online documents, such as html and embedded files, etc., and write them to valid WARC- records."
+SRS50,The command line tools and API in SRS 50 will not include any links extraction features.
+SRS51,"Python scripts shall be implemented incorporating libwarc, and making all of the functionality of libwarc and API available in Python."
+SRS52,"Extensions to ""HTTrack"", ""wget"" and ""curl"" incorporating libwarc shall be provided as patches to recent and specific versions of each tool, to enable users of the tool to access functionality of libwarc"
+SRS53,"Helper documentation for libwarc functionality shall be made available within the ""HTTrack"", ""wget"" and ""curl"" commands."
+SRS54,"A magic number for WARC shall be created and incorporated in the ""file"" mime-type database, enabling the simple identification of WARC files via the Unix ""file"" command"
+SRS55,"The WARC validator tool specified in SRS 31-32 shall be extended to optionally make use of the Jhove command line API to identify and validate WARC files, i.e. given a specific WARC file, this command shall be able to identify the file as a WARC file, validate the level of compliance with a given standard in terms of well-formedness and validity, and finally to characterise the file by extracting and displaying significant properties contained in the file."
+SRS56,WarcMdoule and WarcHandler plugin modules shall be implemented for Jhove Plugin layer to enable identification and validation of WARC files.
+SRS57,WARC files in various test-states shall be provided that test the Jhove deliverables
+SRS58,"Void, duplicate of SRS 79"
+SRS59,"Libwarc shall provide interfaces to SWIG wrappers to allow dynamic language bindings (Python, Ruby, Perl, Lua ...)"
+SRS60,A Python interface to libwarc shall be implemented using the SWIG wrapper
+SRS61,A Java interface to libwarc shall be implemented using the SWIG wrapper and/or JNI
+SRS62,An independent Java implementation of libwarc may be implemented subject to review of deliverables satisfying SRS 61
+SRS63,"Libwarc and the bindings to its functionality shall enable the use of libwarc's iterators described in SRS 16-20 to be used within various dynamic languages and in Java v1.4 and earlier, using metaphors and paradigms familiar to those languages."
+SRS64,"Libwarc and the bindings to its functionality shall enable the use of libwarc's iterators described in SRS 16-20 to be used within Java v1.5 and and later, using Java's new container iterators, such as ""for"" and ""foreach""."
+SRS65,"It shall be possible for libwarc to be able to handle WARC file of any size, with minimal memory usage."
+SRS66,"It shall be possible for libwarc to be able to read, write and update WARC files at high speed, i.e. the design should focus on minimum memory footprint and performance."
+SRS67,Libwarc shall be implemented to WARC v0.17.
+SRS68,"Major revisions to the WARC ISO standard may lead to revisions of libwarc, but these revisions should be isolated and not affect any tools developed incorporating libwarc"
+SRS69,"Libwarc shall be developed on GNU/Linux, Fedora 7"
+SRS70,Libwarc shall be shipped with a manual and build scripts
+SRS71,"Libwarc shall be shipped with installation guides for Fedora, Debian, FreeBSD, Mac OS X 10.5 and Windows XP."
+SRS72,Libwarc shall be shipped with a developer guide and useful examples.
+SRS73,"Libwarc shall be shipped with a number of ready-to-use command lines, for example, warcdump (to dump the contents of a WARC file), w-filter, etc."
+SRS74,"Utility and application level functionality of WARC Tools shall be made available to end users as command line tools, extensions to existing tools, and simple web applications for accessing WARC content"
+SRS75,Communication and support shall be provided to the open source community. This support must be provided for at least term of the project.
+SRS76,Patches implemented for third party projects shall be contributed and distributed to the appropriate community
+SRS77,"The code and documentation of libwarc shall be licensed to the community using an IIPC approved license, such as Apache 2.0 or BSD licence"
+SRS78,"Libwarc and associated tools shall be shipped with installers to ""mod_warc"" for Apache (v2.X) and Lighttpd (v1.4.X) servers"
+SRS79,Libwarc shall be implemented in C and shall conform to ANSI-C standard C99 revision.
+SRS80,"To ensure code portability on older computer architectures, Libwarc shall be compatible with any compiler conforming to the ANSI-C standard C89 revision."
+SRS81,"Command line tools incorporating libwarc shall be atomic - i.e. each tool performing a single function, performing it perfectly, and in the spirit of Unix command lines tools. These may be combined using pipes and redirection and scripting, to create more high level commands."
+SRS82,"Libwarc source code shall be released in the following archives: ""libwarc-version.tar.gz"", ""libwarc-version.tar.bz2"", ""libwarc-version.zip"" together with their corresponding digests. Developers may then adapt the build configuration files for best performance on their target machines."
+SRS83,"Libwarc binary modules, ready to use binary commands and libraries (both static and shared), compiled with generic optimisation flags, shall be released also"
+SRS84,"Libwarc shall be made available as a binary for at least GNU/Linux, FreeBSD, Mac OS X and Windows XP."
+SRS85,"Libwarc shall compile and run under Solaris, AIX, MingW or other Unix compliant system and may compile and run under Windows XP."
+SRS86,"Libwarc shall not depend on a specific build tool in order to be built from source. However, makefiles for each target shall be included to simplify deployment."
+SRS87,"The default compiler used for all Unix systems to build libwarc will be gcc v.3.4.4 (or above). For Windows, the default compiler will be Microsoft Visual C++ 6.X (or above)."
+SRS88,"Only essential external libraries shall be used in libwarc, such as Gzip compression and wide characters encoding libraries."
+SRS89,Assembly code and specific system features shall not be used in libwarc to ensure resulting code is widely portable across multiple target architectures

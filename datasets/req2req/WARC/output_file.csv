@@ -1,0 +1,24 @@
+id,text
+NFR01,"NFR 1 - The core functionality of WARC Tools, specifically the WARC writer/reader, shall be implemented as a comprehensive, standalone, general purpose software library - libwarc."
+NFR02,NFR 2 - WARC v0.17 shall be the baseline version of the WARC standard used in this project.
+NFR03,"NFR 3 - WARC Tools shall be highly portable, running on a range of Linux/Unix platforms and XP as a minimum, together with man pages, build and installation guides, developer guides, etc."
+NFR04,"NFR 4 - Utility and application level functionality of WARC Tools shall be made available to end users as command line tools, extensions to existing tools, and simple web applications for accessing WARC content.
+"
+NFR05,NFR 5 - Communication and support shall be provided to the open source community. This support must be provided for at least term of the project.
+NFR06,"NFR 6 - The library and each tool or extension shall be documented for developers and end users, using man pages and other common document forms."
+NFR07,"NFR 7 - Patches implemented for third party projects shall be documented for developers and end users, using man pages and other common document forms."
+NFR08,NFR 8 - Patches implemented for third party projects shall be contributed and distributed to the appropriate community.
+NFR09,NFR 9 - The code and documentation shall be licensed using an open source license.
+NFR10,"NFR 10 - Installation scripts and/or instructions shall be made for the library and tools for each target platform, including Linux, Unix and Windows, as well as apache and lighttp installation scripts"
+NFR11,NFR 11 - The WARC Tools shall be implemented as a C library
+NFR12,NFR 12 - Library functionality shall have APIs and dynamic language bindings to be made available as software libraries for developers.
+NFR13,NFR 13 - The functionality of the API shall enable the appropriate functionality in the library scriptable1 and programmable2.
+NFR14,"NFR 14 - Web server plug-ins shall conform to the Apache 'mod' API and shall operate correctly with both Apache and Lighttp servers and shall be compatible with appropriate web sever programming standards, such as WSGI in Python and the Servlet API in Java.
+"
+NFR15,"NFR 15 - The deliverables shall be made available in source code, named as ""libwarc-version.tar.gz"", where version is the version of the library. A number of binary distributions may be made, including RPM, DEB and EXE."
+NFR16,"NFR 16 - The deliverables shall be ported to the following platforms: Linux, FreeBSD, Mac OS X 10.5 and Windows."
+NFR17,NFR 17 - The final WARC API shall be coded in C with minimum dependencies or external libraries (e.g. GZIP). It must not include any assembly code.
+NFR18,"NFR 18 - The C library will be developed in such a way as to allow it to be used with the Simplified Wrapper and Interface Generator, or SWIG, (www.swig.org) in order to wrap the C code and allow it to be called natively in a wide variety of languages."
+NFR19,NFR 19 - An interface implementation may be made for Python to allow the library to be used natively by Python programmers requiring no knowledge of the internal implementation of libwarc or C.
+NFR20,NFR 20 - An interface implementation shall be made for Java to allow the library to be used natively by Java programmers requiring no knowledge of the internal implementation of libwarc or C.
+NFR21,"NFR 21 - The functionality of the library shall be exposed in such a way as to fit the metaphors and paradigms of the specific implementation languages (C, Java, Python)."
