@@ -1,4 +1,6 @@
 # Replication Package for "Requirements Traceability Link Recovery via Retrieval-Augmented Generation"
+by Tobias Hey, Dominik Fuchß, Jan Keim, and Anne Koziolek
+
 This is the replication package for our paper "Requirements Traceability Link Recovery via Retrieval-Augmented Generation".
 This package contains the source code, the dataset used in the evaluation, and the results of the evaluation.
 
@@ -8,11 +10,12 @@ This package contains the source code, the dataset used in the evaluation, and t
 - Ollama Instance
 
 ## Structure of this Repository
-* `/` contains the source code of the approach.
-* `/datasets` contains the datasets used in the evaluation and the results of the evaluation.
+* `/` contains the source code of the approach (Note: The most recent version of the tool can be found at [ArDoCo/LiSSA-RATLR](https://github.com/ArDoCo/LiSSA-RATLR))
 * `/cache` contains the cache for the evaluation.
-* `/results-r2r` contains the results of the evaluation.
 * `/configs` contains the configurations used in the evaluation.
+* `/datasets` contains the datasets used in the evaluation and the results of the evaluation.
+* `/results-r2r` contains the results of the evaluation.
+* `/experiments` contains the aggregated results of our experiments, as well as the scripts and results of the statistical tests.
 
 ## Installation
 a. You can use the provided JAR.
