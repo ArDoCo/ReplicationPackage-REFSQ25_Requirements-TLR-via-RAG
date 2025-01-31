@@ -42,7 +42,7 @@
   "target_store" : {
     "name" : "custom",
     "args" : {
-      "max_results" : "<<4>>"
+      "max_results" : "4"
     }
   },
   "classifier" : {
